@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>English Next Door</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .navbar {
+      background-color: #2c3e50;
+      display: flex;
+      justify-content: center;
+    }
+
+    .navbar a {
+      color: white;
+      padding: 14px 20px;
+      text-decoration: none;
+    }
+
+    .navbar a:hover {
+      background-color: #1abc9c;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 60px;
+      background: #ecf0f1;
+    }
+
+    .hero h1 {
+      font-size: 40px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #555;
+    }
+
+    .section {
+      padding: 40px;
+      text-align: center;
+    }
+
+    .video-container {
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    iframe {
+      width: 80%;
+      height: 400px;
+      border: none;
+      border-radius: 10px;
+    }
+
+    .platform-buttons,
+    .contact-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .platform-buttons a {
+      padding: 12px 20px;
+      background-color: #3498db;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    .platform-buttons a:hover {
+      background-color: #2980b9;
+    }
+
+    .contact-buttons a {
+      padding: 12px 20px;
+      background-color: #1abc9c;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    .contact-buttons a:hover {
+      background-color: #16a085;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <a href="#">Home</a>
+    <a href="#">Classroom</a>
+    <a href="#">Payment</a>
+    <a href="#">Calendar</a>
+    <a href="#">Resources</a>
+    <a href="#">Contact</a>
+  </div>
+
+  <!-- World Clock -->
+  <div class="section">
+    <h2>World Clock</h2>
+    <div id="clocks" style="display:flex; justify-content:center; gap:30px;"></div>
+  </div>
+
+  <script>
+    const cities = [
+      {name: "New York", offset: -4},
+      {name: "London", offset: 1},
+      {name: "Tokyo", offset: 9},
+      {name: "Beijing", offset: 8}
+    ];
+
+    function updateClocks() {
+      const clocksDiv = document.getElementById("clocks");
+      clocksDiv.innerHTML = "";
+      const now = new Date();
+
+      cities.forEach(city => {
+        const cityTime = new Date(now.getTime() + city.offset*3600*1000 - now.getTimezoneOffset()*60000);
+        const timeStr = cityTime.toLocaleTimeString();
+        clocksDiv.innerHTML += `<div><strong>${city.name}</strong><br>${timeStr}</div>`;
+      });
+    }
+
+    setInterval(updateClocks, 1000);
+    updateClocks();
+  </script>
+
+  <!-- Hero -->
+  <div class="hero">
+    <h1>English Next Door</h1>
+    <p>Speak English with confidence and achieve your goals</p>
+    <p>No matter where you are!</p>
+  </div>
+
+  <!-- Video -->
+  <div class="section">
+    <h2>Introduction Video</h2>
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe>
+    </div>
+  </div>
+
+  <!-- Sections -->
+  <div class="section">
+    <h2>Welcome</h2>
+    <p>Start your English learning journey today!</p>
+  </div>
+
+  <div class="section">
+    <h2>Classroom</h2>
+    <p>Join live classes and interactive sessions.</p>
+  </div>
+
+  <!-- Platforms -->
+  <div class="section">
+    <h2>Teaching Platforms</h2>
+    <p>We use the following platforms:</p>
+
+    <div class="platform-buttons">
+      <a href="#">Zoom</a>
+      <a href="#">Google Meet</a>
+      <a href="#">Microsoft Teams</a>
+      <a href="#">WeChat Work</a>
+      <a href="#">Skype</a>
+    </div>
+  </div>
+
+  <!-- Payment -->
+  <div class="section">
+    <h2>Payment</h2>
+    <p>Secure and easy payment options.</p>
+  </div>
+
+  <!-- Calendar -->
+  <div class="section">
+    <h2>Calendar</h2>
+    <p>Check your class schedule here.</p>
+  </div>
+
+  <!-- Resources -->
+  <div class="section">
+    <h2>Resources</h2>
+    <p>Access study materials and worksheets.</p>
+  </div>
+
+  <!-- Contact -->
+  <div class="section">
+    <h2>Contact Us</h2>
+    <p>Reach out to us:</p>
+
+    <div class="contact-buttons">
+      <a href="https://wa.me/919000000000" target="_blank">WhatsApp</a>
+      <a href="https://t.me/yourusername" target="_blank">Telegram</a>
+      <a href="#">WeChat</a>
+      <a href="#">LINE</a>
+      <a href="#">Zalo</a>
+      <a href="#">KakaoTalk</a>
+      <a href="https://m.me/YourFacebookUsername" target="_blank">Messenger</a>
+      <a href="tel:+919000000000">Call Us</a>
+    </div>
+  </div>
+
+</body>
+</html>
